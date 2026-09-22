@@ -1,0 +1,31 @@
+IndentAccessModifiers: true
+AccessModifierOffset: 0
+BasedOnStyle: Google
+ColumnLimit: 140
+IndentWidth: 4
+NamespaceIndentation: All
+TabWidth: 4
+UseTab: Never
+AllowAllArgumentsOnNextLine: false
+PackConstructorInitializers: NextLineOnly
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: All
+AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortLoopsOnASingleLine: false
+SortIncludes: false
+PointerAlignment: Right
+ReferenceAlignment: Right
+ReflowComments: false
+SpaceAfterCStyleCast: true
+SpaceAfterLogicalNot: false
+SpaceBeforeRangeBasedForLoopColon: false
+SpaceInEmptyParentheses: false
+BreakBeforeBraces: Custom
+BraceWrapping:
+  BeforeElse: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterControlStatement: true
+
+FixNamespaceComments: false
