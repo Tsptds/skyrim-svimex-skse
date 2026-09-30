@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.25)
 
 project(
-        Template
-        VERSION 0.0.1
+        Svimex
+        VERSION 1.1.0
         LANGUAGES CXX)
 set(PROJECT_LICENSE "GPL-3.0")
 set(PROJECT_FRIENDLY_NAME ${PROJECT_NAME})
-set(PROJECT_AUTHOR "template")
-set(PROJECT_LONG_NAME "Template CommonLibSSE-NG")
+set(PROJECT_AUTHOR "Tsptds")
+set(PROJECT_LONG_NAME "Swimming Extensions")
 set(PROJECT_DESCRIPTION ${PROJECT_LONG_NAME})
 set(PROJECT_COPYRIGHT "Copyright")
 

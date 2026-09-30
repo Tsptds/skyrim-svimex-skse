@@ -69,33 +69,33 @@ class SkseMessagingListener {
         auto registerListener() {
             if (!SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* message) {
                     switch (message->type) {
-                        case SKSE::MessagingInterface::kPostLoad:
-                            T::getInstance().onPostLoad();
-                            break;
-                        case SKSE::MessagingInterface::kPostPostLoad:
-                            T::getInstance().onPostPostLoad();
-                            break;
-                        case SKSE::MessagingInterface::kInputLoaded:
-                            T::getInstance().onInputLoaded();
-                            break;
+                        // case SKSE::MessagingInterface::kPostLoad:
+                        //     T::getInstance().onPostLoad();
+                        //     break;
+                        // case SKSE::MessagingInterface::kPostPostLoad:
+                        //     T::getInstance().onPostPostLoad();
+                        //     break;
+                        // case SKSE::MessagingInterface::kInputLoaded:
+                        //     T::getInstance().onInputLoaded();
+                        //     break;
                         case SKSE::MessagingInterface::kDataLoaded:
                             T::getInstance().onDataLoaded();
                             break;
-                        case SKSE::MessagingInterface::kNewGame:
-                            T::getInstance().onNewGame();
-                            break;
-                        case SKSE::MessagingInterface::kPreLoadGame:
-                            T::getInstance().onPreLoadGame();
-                            break;
-                        case SKSE::MessagingInterface::kPostLoadGame:
-                            T::getInstance().onPostLoadGame();
-                            break;
-                        case SKSE::MessagingInterface::kSaveGame:
-                            T::getInstance().onSaveGame();
-                            break;
-                        case SKSE::MessagingInterface::kDeleteGame:
-                            T::getInstance().onDeleteGame();
-                            break;
+                        // case SKSE::MessagingInterface::kNewGame:
+                        //     T::getInstance().onNewGame();
+                        //     break;
+                        // case SKSE::MessagingInterface::kPreLoadGame:
+                        //     T::getInstance().onPreLoadGame();
+                        //     break;
+                        // case SKSE::MessagingInterface::kPostLoadGame:
+                        //     T::getInstance().onPostLoadGame();
+                        //     break;
+                        // case SKSE::MessagingInterface::kSaveGame:
+                        //     T::getInstance().onSaveGame();
+                        //     break;
+                        // case SKSE::MessagingInterface::kDeleteGame:
+                        //     T::getInstance().onDeleteGame();
+                        //     break;
                     }
                 })) {
                 SKSE::stl::report_and_fail("Unable to register message listener.");

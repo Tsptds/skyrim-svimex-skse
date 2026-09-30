@@ -2,9 +2,6 @@
 
 #include "BaseLibraries.h"
 
-//local
-#include "Util.h"
-
 #undef cdecl  // Workaround for Clang 14 CMake configure error.
 
 #define DLLEXPORT __declspec(dllexport)

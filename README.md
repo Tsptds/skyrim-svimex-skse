@@ -1,4 +1,4 @@
-# ***Template SKSE Project for Skyrim SE - CommonLibSSE-NG***
+# ***Svimex - CommonLibSSE-NG***
 
 ## ***Runtime requirements***
 
@@ -67,6 +67,3 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND "C:\\games\\Skyrim\\skse64_loader.exe" WORKING_DIRECTORY "C:\\games\\Skyrim"
 )
 ~~~
-
-## Credits
-- Original template by epinter [SKSE ClibNG Template](https://github.com/epinter/skse-clibng-template)
