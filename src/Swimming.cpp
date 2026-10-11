@@ -27,7 +27,7 @@ namespace Swimming
         // INFO("Dive toggled -> underwater={}", g_isUnderwater);
     }
 
-    void OnUpdate(RE::Actor *a_actor)
+    void OnUpdate(RE::Actor *a_actor, float a_delta)
     {
         using st = RE::hkpCharacterStateType;
         using cf = RE::CHARACTER_FLAGS;
@@ -86,7 +86,7 @@ namespace Swimming
 
         bool wantSubmerge;
         a_actor->GetGraphVariableBool("bSvimex_WantSubmerge", wantSubmerge);
-        if (g_isUnderwater && !wantSubmerge) return;
+        if (g_isUnderwater) return;
 
         // Drifting - floating fix, water inertia compatibility
         if (ctrl->flags.any(cf::kSupport, cf::kHasPotentialSupportManifold))
@@ -118,7 +118,7 @@ namespace Swimming
         float waterZ;
         if (cell->GetWaterHeight(pos, waterZ))
         {
-            const float targetZ = waterZ + Config::kSurfaceZOffset;
+            const float targetZ = waterZ + Config::GetSurfaceZOffset();
             const float signedDiff = targetZ - pos.z;  // diff to supposed swimming Z, not water surface
             {
                 // Submerge start
@@ -126,11 +126,10 @@ namespace Swimming
                 // if (a_actor->GetGraphVariableBool("bSvimex_WantSubmerge", wantSubmerge) && wantSubmerge)
                 if (wantSubmerge)
                 {
-                    const float alpha = 1.0f - std::exp(-Config::kSurfaceLerpSpeed * RE::GetSecondsSinceLastFrame());
                     RE::hkVector4 hkPos;
                     ctrl->GetPositionImpl(hkPos, false);
-                    const float stepZ = alpha;
-                    hkPos.quad.m128_f32[2] -= stepZ * RE::bhkWorld::GetWorldScale();
+                    const float stepZ = Config::kSubmergeSpeed * a_delta;
+                    hkPos.quad.m128_f32[2] -= stepZ / 69.99125f;
 
                     ctrl->SetPositionImpl(hkPos, false, false);
 
@@ -140,7 +139,8 @@ namespace Swimming
                 }
             }
 
-            const float alpha = 1.0f - std::exp(-Config::kSurfaceLerpSpeed * RE::GetSecondsSinceLastFrame());
+            // Clamp to water surface
+            const float alpha = 1.0f - std::exp(-Config::kSurfaceLerpSpeed * a_delta);
             const float easedZ = pos.z + signedDiff * alpha;
 
             // RE::hkVector4 vel;

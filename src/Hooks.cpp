@@ -9,7 +9,7 @@ namespace Hooks
                 func(a_this, a_delta);
                 if (a_this)
                 {
-                    Swimming::OnUpdate(a_this);
+                    Swimming::OnUpdate(a_this, a_delta);
                 }
             }
 

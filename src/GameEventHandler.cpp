@@ -5,7 +5,11 @@
 
 namespace this_plugin
 {
-    void GameEventHandler::onLoad() { INFO("onLoad()"); }
+    void GameEventHandler::onLoad()
+    {
+        ModSettings::ReadINI();
+        Config::kSurfaceClampSubmergeLevel = ModSettings::surfaceClampLevel.GetValue();
+    }
 
     void GameEventHandler::onPostLoad() { INFO("onPostLoad()"); }
 

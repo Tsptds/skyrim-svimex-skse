@@ -15,7 +15,7 @@ namespace Swimming
 
     void ToggleDive(RE::Actor *a_actor);
 
-    void OnUpdate(RE::Actor *a_actor);
+    void OnUpdate(RE::Actor *a_actor, float a_delta);
 
     bool IsSwimming(RE::Actor *a_actor);
 }
