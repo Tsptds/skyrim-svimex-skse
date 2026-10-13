@@ -3,7 +3,7 @@ add_compile_definitions(REX_OPTION_INI)
 
 project(
         Svimex
-        VERSION 1.1.2
+        VERSION 1.1.3
         LANGUAGES CXX)
 set(PROJECT_LICENSE "GPL-3.0")
 set(PROJECT_FRIENDLY_NAME ${PROJECT_NAME})
